@@ -57,8 +57,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'])) {
         require 'vendor/autoload.php'; // Path to Composer's autoloader
         
         // Configure API key authorization
-        $config = SendinBlue\Client\Configuration::getDefaultConfiguration()
-            ->setApiKey('api-key', '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');
+// Dans votre fichier forgot-password.php
+$config = json_decode(file_get_contents('config.json'), true);
+$brevo_api_key = $config['brevo_api_key'];
+
+// Utilisez la clé dans le code
+$config = SendinBlue\Client\Configuration::getDefaultConfiguration()
+    ->setApiKey('api-key', $brevo_api_key);
         
         $apiInstance = new SendinBlue\Client\Api\TransactionalEmailsApi(
             new GuzzleHttp\Client(),
