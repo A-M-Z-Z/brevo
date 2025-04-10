@@ -58,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'])) {
         
         // Configure API key authorization
         $config = SendinBlue\Client\Configuration::getDefaultConfiguration()
-            ->setApiKey('api-key', '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');
+            ->setApiKey('api-key', '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');
         
         $apiInstance = new SendinBlue\Client\Api\TransactionalEmailsApi(
             new GuzzleHttp\Client(),
